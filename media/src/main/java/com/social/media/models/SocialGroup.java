@@ -28,3 +28,4 @@ public class SocialGroup {
         return Objects.hash(id);
     }
 }
+

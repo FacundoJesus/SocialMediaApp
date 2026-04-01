@@ -18,7 +18,6 @@ public class SocialUser {
     private Long id;
 
     @OneToOne(mappedBy = "user")
-    //@JoinColumn(name = "social_profile_id")
     private SocialProfile socialProfile;
 
     @OneToMany(mappedBy = "socialUser")

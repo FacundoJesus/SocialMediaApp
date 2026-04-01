@@ -20,3 +20,4 @@ public class Post {
     @JsonIgnore
     private SocialUser socialUser;
 }
+
