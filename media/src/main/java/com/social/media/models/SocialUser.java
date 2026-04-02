@@ -17,7 +17,7 @@ public class SocialUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(mappedBy = "user")
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private SocialProfile socialProfile;
 
     @OneToMany(mappedBy = "socialUser")
@@ -34,5 +34,12 @@ public class SocialUser {
     @Override
     public int hashCode(){
         return Objects.hash(id);
+    }
+
+
+    //Metodo para mantener la coherencia en ambos lados de la relación bidireccional
+    public void setSocialProfile(SocialProfile sf) {
+        sf.setUser(this);
+        this.socialProfile = sf;
     }
 }

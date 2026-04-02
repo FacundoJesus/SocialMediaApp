@@ -19,4 +19,14 @@ public class SocialProfile {
     @JoinColumn(name = "social_user")
     @JsonIgnore
     private SocialUser user;
+
+    private String description;
+
+
+    //Metodo para mantener la coherencia en ambos lados de la relación bidireccional
+    public void setSocialUser(SocialUser su) {
+        this.user = su;
+        if(user.getSocialProfile() != this)
+            user.setSocialProfile(this);
+    }
 }
